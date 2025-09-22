@@ -1,0 +1,16 @@
+services:
+  jackett:
+    image: lscr.io/linuxserver/jackett:latest
+    container_name: chome_jackett
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Moscow
+      - AUTO_UPDATE=true
+      - RUN_OPTS=
+    volumes:
+      - /mnt/data/projects/chome/volumes/jackett:/config
+      - /mnt/data/storage/blackhole:/downloads
+    ports:
+      - 29117:9117

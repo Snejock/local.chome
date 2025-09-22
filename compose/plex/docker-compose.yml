@@ -1,0 +1,19 @@
+services:
+  plex:
+    image: lscr.io/linuxserver/plex:latest
+    container_name: chome_plex
+    restart: unless-stopped
+    runtime: nvidia
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Moscow
+      - VERSION=docker
+      - PLEX_CLAIM='claim-DsjpBayzv1aNVdwLracD'
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - /mnt/data/projects/chome/volumes/plex/library:/config
+      - /mnt/data/storage/movies:/movies
+      - /mnt/data/storage/music:/music
+      - /mnt/data/storage/photos:/photos

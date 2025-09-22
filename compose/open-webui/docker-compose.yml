@@ -1,0 +1,18 @@
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:latest
+    container_name: chome_open-webui
+    restart: unless-stopped
+    depends_on:
+      - ollama
+    networks:
+      - chome-net
+    volumes:
+      - /mnt/data/projects/chome/volumes/webui/data:/app/backend/data
+    ports:
+      - '28081:8080'
+    environment:
+      - 'OLLAMA_BASE_URL=http://chome_ollama:11434'
+      - 'WEBUI_SECRET_KEY='
+    extra_hosts:
+      - host.docker.internal:host-gateway

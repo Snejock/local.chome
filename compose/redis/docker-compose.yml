@@ -1,0 +1,20 @@
+services:
+  redis:
+    image: redis:bookworm
+    container_name: chome_redis
+    restart: unless-stopped
+    networks:
+      - chome-net
+    ports:
+      - '26379:6379'
+    volumes:
+      - redis:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'PING']
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+volumes:
+  redis:

@@ -1,0 +1,20 @@
+services:
+  adguard:
+    image: adguard/adguardhome:latest
+    container_name: chome_adguard
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Moscow
+    volumes:
+      - /mnt/data/projects/chome/volumes/adguard/data:/opt/adguardhome/work
+      - /mnt/data/projects/chome/volumes/adguard/config:/opt/adguardhome/conf
+      - /mnt/data/projects/chome/volumes/npm/letsencrypt:/etc/letsencrypt:r
+    ports:
+      - '53:53/tcp'
+      - '53:53/udp'
+      - '29080:80/tcp'
+      - '29443:443/tcp'
+      - '29443:443/udp'
+      - '29300:3000/tcp'

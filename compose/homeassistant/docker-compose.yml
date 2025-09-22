@@ -1,0 +1,19 @@
+services:
+  homeassistant:
+    image: lscr.io/linuxserver/homeassistant:latest
+    container_name: chome_homeassistant
+    restart: unless-stopped
+    network_mode: host
+#    ports:
+#      - '28123:8123'
+#    networks:
+#      - chome-net
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Moscow
+    volumes:
+      - homeassistant:/config
+
+volumes:
+  homeassistant:
