@@ -9,6 +9,13 @@ services:
       - '81:8181'
     networks:
       - chome-net
+      - core-net
+    dns:
+      - 192.168.1.10
     volumes:
-      - /mnt/data/projects/chome/volumes/npm/data:/data:rw
-      - /mnt/data/projects/chome/volumes/npm/letsencrypt:/etc/letsencrypt:rw
+      - npm:/config:rw
+      # - npm_data:/data:rw
+      # - npm_letsencrypt:/etc/letsencrypt:rw
+
+volumes:
+  npm:
