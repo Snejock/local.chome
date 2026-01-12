@@ -8,6 +8,7 @@ include:
   # - path: ./compose/jackett/docker-compose.yml
   # - path: ./compose/prowlarr/docker-compose.yml
   - path: ./compose/adguard/docker-compose.yml
+  - path: ./compose/plex/docker-compose.yml
 
 networks:
   chome-net:
