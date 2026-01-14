@@ -3,6 +3,9 @@ services:
     image: adguard/adguardhome:latest
     container_name: chome_adguard
     restart: unless-stopped
+    networks: [chome-net]
+    dns:
+      - 192.168.1.10
     environment:
       - PUID=1000
       - PGID=1000

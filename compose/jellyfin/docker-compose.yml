@@ -3,6 +3,9 @@ services:
     image: lscr.io/linuxserver/jellyfin:latest
     container_name: chome_jellyfin
     restart: unless-stopped
+    networks: [chome-net]
+    dns:
+      - 192.168.1.10
     runtime: nvidia
     environment:
       - PUID=1000
