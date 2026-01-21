@@ -17,3 +17,4 @@ services:
       - /mnt/data/storage/movies:/movies
       - /mnt/data/storage/music:/music
       - /mnt/data/storage/photos:/photos
+      - /mnt/data/storage/tvshows:/tvshows
