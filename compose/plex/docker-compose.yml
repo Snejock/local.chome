@@ -14,7 +14,7 @@ services:
       - NVIDIA_VISIBLE_DEVICES=all
     volumes:
       - /mnt/data/projects/chome/volumes/plex/library:/config
-      - /mnt/data/storage/movies:/movies
-      - /mnt/data/storage/music:/music
-      - /mnt/data/storage/photos:/photos
-      - /mnt/data/storage/tvshows:/tvshows
+      - /mnt/nas/media/movies:/movies
+      - /mnt/nas/media/music:/music
+      - /mnt/nas/media/photos:/photos
+      - /mnt/nas/media/tvshows:/tvshows
